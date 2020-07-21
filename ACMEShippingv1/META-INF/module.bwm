@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:shippingabstrct="http://www.tibco.com/bwp/services/shippingabstrct" xmi:id="_Sitd0MJ_EeaUdYGRSc1Rfw" targetNamespace="http://tns.tibco.com/bw/composite/ACMEShippingv1" name="ACMEShippingv1" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_SppMQMJ_EeaUdYGRSc1Rfw" name="ShippingInput" promote="ACMEShippingComponent/ShippingInput">
+    <sca:interface.wsdl xmi:id="_SpuEwMJ_EeaUdYGRSc1Rfw" interface="http://www.tibco.com/bwp/services/shippingabstrct#wsdl.interface(portType)" scaext:wsdlLocation="../Resources/intfACMEShipping.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_SpzkUcJ_EeaUdYGRSc1Rfw" name="ACMEShipping" targetNamespace="http://www.tibco.com/bwp/services/shippingabstrct/DoShippingOpImpl" portTypeQName="shippingabstrct:portType" transportBindingType="HTTP" modelVersion="1.1.0">
+      <bindingType xmi:id="_Sp0LYMJ_EeaUdYGRSc1Rfw"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_Sp0LYcJ_EeaUdYGRSc1Rfw" endpointURI="/Processes/ACMEShipping" httpConnector="Resources.HTTPConn"/>
+      <operationConfiguration xmi:id="_Sp0LYsJ_EeaUdYGRSc1Rfw" operationName="DoShippingOp" action="/Processes/ACMEShipping">
+        <bindingType xmi:id="_Sp0LY8J_EeaUdYGRSc1Rfw" style="DOCUMENT"/>
+        <messageConfiguration xmi:id="_Sp0LZMJ_EeaUdYGRSc1Rfw" messageQName="shippingabstrct:ShippingRequest">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_Sp0LZcJ_EeaUdYGRSc1Rfw" partName="parameters" encoding="literal"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_Sp0LZsJ_EeaUdYGRSc1Rfw" messageQName="shippingabstrct:ShippingResult" messageDirection="OUTPUT">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_Sp0LZ8J_EeaUdYGRSc1Rfw" partName="parameters" encoding="literal"/>
+        </messageConfiguration>
+        <context xmi:id="_Sp0LaMJ_EeaUdYGRSc1Rfw">
+          <inputMapping xmi:id="_Sp0LacJ_EeaUdYGRSc1Rfw"/>
+          <outputMapping xmi:id="_Sp0LasJ_EeaUdYGRSc1Rfw" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_SpzkUMJ_EeaUdYGRSc1Rfw" bindingName="ACMEShipping"/>
+  </sca:service>
+  <sca:property xmi:id="_SiuE9MJ_EeaUdYGRSc1Rfw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE9cJ_EeaUdYGRSc1Rfw" name="BW.APPNODE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE9sJ_EeaUdYGRSc1Rfw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE98J_EeaUdYGRSc1Rfw" name="BW.HOST.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE-MJ_EeaUdYGRSc1Rfw" name="BW.DOMAIN.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE-cJ_EeaUdYGRSc1Rfw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE-sJ_EeaUdYGRSc1Rfw" name="BW.APPSPACE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE-8J_EeaUdYGRSc1Rfw" name="BW.MODULE.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE_MJ_EeaUdYGRSc1Rfw" name="BW.MODULE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE8MJ_EeaUdYGRSc1Rfw" name="MyGlobalVars/DebugFileDtl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE8cJ_EeaUdYGRSc1Rfw" name="MyGlobalVars/DebugInfo" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE8sJ_EeaUdYGRSc1Rfw" name="MyGlobalVars/ServiceHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SiuE88J_EeaUdYGRSc1Rfw" name="MyGlobalVars/ServicePort" type="XMLSchema:int" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_SpXfcMJ_EeaUdYGRSc1Rfw" name="ACMEShippingComponent" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_SpXfccJ_EeaUdYGRSc1Rfw" processName="acmeshippingv1.ACMEShipping"/>
+    <sca:service xmi:id="_Spbw4MJ_EeaUdYGRSc1Rfw" name="ShippingInput">
+      <sca:interface.wsdl xmi:id="_SpcX8MJ_EeaUdYGRSc1Rfw" interface="http://www.tibco.com/bwp/services/shippingabstrct#wsdl.interface(portType)" scaext:wsdlLocation="../Resources/intfACMEShipping.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_zrSkdKlZEeqhBZxFYNeIkg" name="ComponentShippingTester" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zrSkdalZEeqhBZxFYNeIkg" processName="acmeshippingv1.ShippingTester"/>
+  </sca:component>
+</sca:composite>
