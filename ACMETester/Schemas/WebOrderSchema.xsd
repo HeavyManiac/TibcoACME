@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/WebOrderSchema" elementFormDefault="qualified" targetNamespace="http://www.example.org/WebOrderSchema">
+
+    <element name="WebOrderRequest" type="tns:WebOrderRequest"/>
+    
+    <complexType name="WebOrderRequest">
+    	<sequence>
+    		<element name="CustID" type="string" />
+    		<element name="OrderAmount" type="double" />
+    		<element name="OrderDate" type="date" />
+    		<element name="LineItems" type="tns:LineItems" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+    
+    <element name="WebOrderResponse" type="tns:WebOrderResponse"/>
+    
+    <complexType name="WebOrderResponse">
+    	<sequence>
+    		<element name="CustID" type="string"></element>
+    		<element name="OrderID" type="string" />
+    		<element name="OrderStatus" type="string" />
+    		<element name="Comments" type="string" />
+    	</sequence>
+    </complexType>
+    
+    
+
+    <complexType name="LineItems">
+    	<sequence>
+    		<element name="ItemSKU" type="string"></element>
+    		<element name="Qty" type="int"></element>
+    	</sequence>
+    </complexType>
+</schema>
