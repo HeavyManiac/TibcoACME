@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1437423743402" xmlns:tns="http://www.example.org/wsdl/1437423743369" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MainProcess" targetNamespace="http://www.example.org/wsdl/1437423743369">
+  <wsdl:import location="../Schemas/MainProcessSchema.xsd" namespace="http://www.example.org/schema/1437423743402"/>
+  <wsdl:message name="SubmitOrderRequest">
+    <wsdl:part element="extns:SubmitOrderRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitOrderResponse">
+    <wsdl:part element="extns:SubmitOrderResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="doBillingRequest">
+    <wsdl:part element="extns:doBillingRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="doBillingResponse">
+    <wsdl:part element="extns:doBillingResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelOrderRequest">
+    <wsdl:part element="extns:cancelOrderRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelOrderResponse">
+    <wsdl:part element="extns:cancelOrderResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="MainProcess">
+    <wsdl:operation name="SubmitOrder">
+      <wsdl:input message="tns:SubmitOrderRequest" name="SubmitOrderInput"/>
+      <wsdl:output message="tns:SubmitOrderResponse" name="SubmitOrderOutput"/>
+    </wsdl:operation>
+        <wsdl:operation name="doBilling">
+      <wsdl:input message="tns:doBillingRequest" name="operationInput"/>
+      <wsdl:output message="tns:doBillingResponse" name="operationOutput"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelOrder">
+      <wsdl:input message="tns:cancelOrderRequest" name="operationInput0"/>
+      <wsdl:output message="tns:cancelOrderResponse" name="operationOutput0"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
