@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:op="http://www.example.org/wsdl/Comp/Order" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OrderingProcess" targetNamespace="http://www.example.org/wsdl/Comp/Order">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.example.org/wsdl/Comp/Order">
+      <xsd:element name="orderRequestRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+                        <xsd:element name="OrderID" type="xsd:string"/>
+                        <xsd:element name="CCNumber" type="xsd:string"/>
+                        <xsd:element name="ProductID" type="xsd:string"/>
+                        <xsd:element name="ProductQty" type="xsd:integer"/>
+                        <xsd:element name="OrderAmt" type="xsd:double"/>
+                        <xsd:element name="Address" type="xsd:string"/>
+                        <xsd:element name="ZipCode" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="orderRequestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OrderID" type="xsd:string"/>
+                        <xsd:element name="OrderStatus" type="xsd:string"/>
+                        <xsd:element name="TrackingID" type="xsd:string"/>
+                        <xsd:element name="DeliveryDate" type="xsd:date"/>
+                        <xsd:element name="Comments" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="orderRequestFault">
+        <xsd:complexType>
+          <xsd:sequence>
+                        <xsd:element name="OrderID" type="xsd:string"/>
+                        <xsd:element name="fault" type="xsd:string"/>
+                        <xsd:element name="comments" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelOrderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CCNumber" type="xsd:string"/>
+                        <xsd:element name="CancelReason" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CancelID" type="xsd:string"/>
+                        <xsd:element name="Comments" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="orderRequestRequest">
+    <wsdl:part element="op:orderRequestRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="orderRequestResponse">
+    <wsdl:part element="op:orderRequestResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="orderRequestFault">
+    <wsdl:part element="op:orderRequestFault" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelOrderRequest">
+    <wsdl:part element="op:cancelOrderRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelOrderResponse">
+    <wsdl:part element="op:cancelOrderResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderingProcess">
+    <wsdl:operation name="orderRequest">
+      <wsdl:input message="op:orderRequestRequest" name="orderRequestInput"/>
+      <wsdl:output message="op:orderRequestResponse" name="orderRequestOutput"/>
+      <wsdl:fault message="op:orderRequestFault" name="Fault"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelOrder">
+      <wsdl:input message="op:cancelOrderRequest" name="operationInput"/>
+      <wsdl:output message="op:cancelOrderResponse" name="operationOutput"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
