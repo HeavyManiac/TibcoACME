@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:extns="http://www.example.org/WebOrderSchema" xmlns:extns1="http://www.example.org/BillingSchema" xmlns:extns2="http://www.example.org/ShippingSchema" xmlns:mo="http://www.example.org/schema/1437423743402" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://www.example.org/schema/1437423743402">
+    <import namespace="http://www.example.org/WebOrderSchema" schemaLocation="WebOrderSchema.xsd"/>
+    <element name="SubmitOrderRequest" type="extns:WebOrderRequest">
+  </element>
+  <element name="SubmitOrderResponse" type="extns:WebOrderResponse">
+  </element>
+    <element name="doBillingRequest">
+    <complexType>
+      <sequence>
+        <element name="CustID" type="string"/>
+                <element name="BillingAmount" type="double"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="doBillingResponse">
+    <complexType>
+      <sequence>
+        <element name="billingStatus" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="cancelOrderRequest">
+    <complexType>
+      <sequence>
+        <element name="CustID" type="string"/>
+                <element name="CancelDate" type="dateTime"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="cancelOrderResponse">
+    <complexType>
+      <sequence>
+        <element name="CustID" type="string"/>
+                <element name="CancelStatus" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+</schema>
