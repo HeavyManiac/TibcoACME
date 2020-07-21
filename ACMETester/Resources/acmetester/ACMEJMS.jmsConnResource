@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_nvnl8aoEEeqJW8FS2ZFxDA" name="acmetester.ACMEJMS" type="jms:JMSConnectionFactory">
+  <jndi:reference xmi:id="_nvnl8qoEEeqJW8FS2ZFxDA" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="acmetester.JNDIConfiguration7222"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_nvnl86oEEeqJW8FS2ZFxDA" factoryType="Queue/Topic" jndiName="QueueConnectionFactory" topicFactoryJNDIName="TopicConnectionFactory"/>
+</jndi:namedResource>
