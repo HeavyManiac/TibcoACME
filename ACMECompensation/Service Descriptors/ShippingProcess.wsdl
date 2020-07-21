@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.org/schema/1438099624251" xmlns:sp="http://www.example.org/wsdl/Comp/Order/1438099624230" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ShippingProcess" targetNamespace="http://www.example.org/wsdl/Comp/Order/1438099624230">
+  <wsdl:import namespace="http://www.example.org/schema/1438099624251"/>
+  <wsdl:message name="completeShippingRequest">
+    <wsdl:part element="extns:completeShippingRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="completeShippingResponse">
+    <wsdl:part element="extns:completeShippingResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelShippingRequest">
+    <wsdl:part element="extns:cancelShippingRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelShippingResponse">
+    <wsdl:part element="extns:cancelShippingResponse" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="ShippingProcess">
+    <wsdl:operation name="completeShipping">
+      <wsdl:input message="sp:completeShippingRequest" name="completeShippingInput"/>
+      <wsdl:output message="sp:completeShippingResponse" name="completeShippingOutput"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelShipping">
+      <wsdl:input message="sp:cancelShippingRequest" name="operationInput"/>
+      <wsdl:output message="sp:cancelShippingResponse" name="operationOutput"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
