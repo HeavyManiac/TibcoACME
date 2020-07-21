@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:CheckCustCredit="http://www.tibco.com/CheckCustCredit/" xmlns:CheckCustCredit-Start-Input.xsd="/Processes/CheckCustCredit-Start-Input.xsd" xmlns:CheckCustCredit.xsd="/Processes/CheckCustCredit.xsd" xmlns:CreditCheck="http://www.tibco.com/edu/CreditCheck" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:wsdl_1481756505135="http://www.example.org/wsdl/1481756505135" xmi:id="_Z74RYMGbEeaRet1oV4IS6A" targetNamespace="http://tns.tibco.com/bw/composite/ACMECustomerChk" name="ACMECustomerChk" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_3Ep-UsJfEeauvObYHagLcg" name="CheckCustCredit" promote="ComponentCheckCustCreditService/CheckCustCredit">
+    <sca:interface.wsdl xmi:id="_3EqlYMJfEeauvObYHagLcg" interface="http://www.tibco.com/CheckCustCredit/#wsdl.interface(CheckCustCredit)" scaext:wsdlLocation="../Service%20Descriptors/CheckCustCredit.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_9S3NAMJfEeauvObYHagLcg" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/61f09219369b47cd9b9ef814455ea9fb/SOAPServiceBinding" portTypeQName="CheckCustCredit:CheckCustCredit" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit.wsdl">
+      <bindingType xmi:id="_9S5CMMJfEeauvObYHagLcg"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_981-IMJfEeauvObYHagLcg" endpointURI="/SOAPServiceBinding/checkCustCredit/" httpConnector="acmecustomerchk.HTTPConn"/>
+      <operationConfiguration xmi:id="_9S5CMcJfEeauvObYHagLcg" operationName="CheckOp" action="CheckOp" actionNeeded="true">
+        <bindingType xmi:id="_9S5CMsJfEeauvObYHagLcg"/>
+        <messageConfiguration xmi:id="_9S5CM8JfEeauvObYHagLcg" messageQName="CheckCustCredit:CheckOpRequest" wsdlLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_9S5CNMJfEeauvObYHagLcg" partName="parameters" partElementName="CheckCustCredit.xsd:InSchema"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_9S5CNcJfEeauvObYHagLcg" messageQName="CheckCustCredit:CheckOpResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_9S5CNsJfEeauvObYHagLcg" partName="parameters" partElementName="CheckCustCredit.xsd:OutSchema"/>
+        </messageConfiguration>
+        <context xmi:id="_9S5pQMJfEeauvObYHagLcg">
+          <inputMapping xmi:id="_9S5pQcJfEeauvObYHagLcg"/>
+          <outputMapping xmi:id="_9S5pQsJfEeauvObYHagLcg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_FnCkILAEEeqwP7BCccK1Zw" name="SOAPServiceBinding1" targetNamespace="http://www.tibco.com/4f380cfb39bb441089f8a9a3631a1820/SOAPServiceBinding1" portTypeQName="CheckCustCredit:CheckCustCredit" transportBindingType="JMS" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit.wsdl">
+      <bindingType xmi:id="_FnCkIbAEEeqwP7BCccK1Zw"/>
+      <inboundConfiguration xsi:type="axis2:JMSInboundTransportConfiguration" xmi:id="_MAic0LAEEeqwP7BCccK1Zw" jmsResource="acmecustomerchk.JMSConnectionResource" destination="ACME.CreditChk" messageType="Text"/>
+      <operationConfiguration xmi:id="_FnCkIrAEEeqwP7BCccK1Zw" operationName="CheckOp" action="CheckOp" actionNeeded="true">
+        <bindingType xmi:id="_FnCkI7AEEeqwP7BCccK1Zw"/>
+        <messageConfiguration xmi:id="_FnCkJLAEEeqwP7BCccK1Zw" messageQName="CheckCustCredit:CheckOpRequest" wsdlLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_FnCkJbAEEeqwP7BCccK1Zw" partName="parameters" partElementName="CheckCustCredit.xsd:InSchema"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_FnCkJrAEEeqwP7BCccK1Zw" messageQName="CheckCustCredit:CheckOpResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_FnCkJ7AEEeqwP7BCccK1Zw" partName="parameters" partElementName="CheckCustCredit.xsd:OutSchema"/>
+        </messageConfiguration>
+        <context xmi:id="_FnCkKLAEEeqwP7BCccK1Zw">
+          <inputMapping xmi:id="_FnCkKbAEEeqwP7BCccK1Zw"/>
+          <outputMapping xmi:id="_FnCkKrAEEeqwP7BCccK1Zw" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_9S5pQ8JfEeauvObYHagLcg" bindingName="SOAPServiceBinding"/>
+    <scact:bindingAdjunct xmi:id="_FnCkK7AEEeqwP7BCccK1Zw" bindingName="SOAPServiceBinding1"/>
+  </sca:service>
+  <sca:reference xmi:id="_SuxNYrAaEeqwP7BCccK1Zw" multiplicity="0..1" name="CheckCustCredit" wiredByImpl="false" promote="ComponentExternalService/CheckCustCredit">
+    <sca:interface.wsdl xmi:id="_SuxNY7AaEeqwP7BCccK1Zw" interface="http://www.tibco.com/edu/CreditCheck#wsdl.interface(CheckCustCredit)" scaext:wsdlLocation="../Service%20Descriptors/CheckCustCredit_gen1.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPReferenceBinding" xmi:id="_Sux0cLAaEeqwP7BCccK1Zw" name="SOAPReferenceBinding" portTypeQName="CreditCheck:CheckCustCredit" transportBindingType="JMS" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit_gen1.wsdl" serviceQName="CreditCheck:CheckCustCredit" portName="CheckCustCreditSOAP-1" serviceBindingQName="CreditCheck:SOAPServiceBinding1" destination="ACME.CreditChk" wsdlLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit_gen1.wsdl">
+      <bindingType xmi:id="_SuybgLAaEeqwP7BCccK1Zw" style="DOCUMENT"/>
+      <operationConfiguration xmi:id="_SuybgbAaEeqwP7BCccK1Zw" operationName="CheckOp" action="CheckOp">
+        <bindingType xmi:id="_SuybgrAaEeqwP7BCccK1Zw" style="DOCUMENT"/>
+        <messageConfiguration xmi:id="_Suybg7AaEeqwP7BCccK1Zw" messageQName="CreditCheck:CheckOpRequest" wsdlLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit_gen1.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_SuybhLAaEeqwP7BCccK1Zw" partName="parameters" partElementName="CheckCustCredit.xsd:InSchema" encoding="literal"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_SuybhbAaEeqwP7BCccK1Zw" messageQName="CreditCheck:CheckOpResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMECustomerChk/Service%20Descriptors/CheckCustCredit_gen1.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_SuybhrAaEeqwP7BCccK1Zw" partName="parameters" partElementName="CheckCustCredit.xsd:OutSchema" encoding="literal"/>
+        </messageConfiguration>
+        <context xmi:id="_Suybh7AaEeqwP7BCccK1Zw">
+          <inputMapping xmi:id="_SuybiLAaEeqwP7BCccK1Zw"/>
+          <outputMapping xmi:id="_SuybibAaEeqwP7BCccK1Zw" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <outboundConfiguration xsi:type="axis2:JMSOutboundTransportConfiguration" xmi:id="_SuzCkLAaEeqwP7BCccK1Zw" jmsResource="acmecustomerchk.JMSConnectionResource"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_SuzCkbAaEeqwP7BCccK1Zw" bindingName="SOAPReferenceBinding"/>
+  </sca:reference>
+  <sca:property xmi:id="_Z75fgMGbEeaRet1oV4IS6A" name="Deployment" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fgcGbEeaRet1oV4IS6A" name="DirLedger" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fgsGbEeaRet1oV4IS6A" name="DirTrace" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fg8GbEeaRet1oV4IS6A" name="Domain" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fhMGbEeaRet1oV4IS6A" name="HawkEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fhcGbEeaRet1oV4IS6A" name="JmsProviderUrl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fhsGbEeaRet1oV4IS6A" name="JmsSslProviderUrl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fh8GbEeaRet1oV4IS6A" name="RemoteRvDaemon" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fiMGbEeaRet1oV4IS6A" name="RvDaemon" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75ficGbEeaRet1oV4IS6A" name="RvNetwork" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fisGbEeaRet1oV4IS6A" name="RvService" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fi8GbEeaRet1oV4IS6A" name="RvaHost" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fjMGbEeaRet1oV4IS6A" name="RvaPort" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fjcGbEeaRet1oV4IS6A" name="TIBHawkDaemon" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fjsGbEeaRet1oV4IS6A" name="TIBHawkNetwork" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fj8GbEeaRet1oV4IS6A" name="TIBHawkService" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fk8GbEeaRet1oV4IS6A" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75flMGbEeaRet1oV4IS6A" name="BW.APPNODE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75flcGbEeaRet1oV4IS6A" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75flsGbEeaRet1oV4IS6A" name="BW.HOST.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fl8GbEeaRet1oV4IS6A" name="BW.DOMAIN.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fmMGbEeaRet1oV4IS6A" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fmcGbEeaRet1oV4IS6A" name="BW.APPSPACE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fmsGbEeaRet1oV4IS6A" name="BW.MODULE.VERSION" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fm8GbEeaRet1oV4IS6A" name="BW.MODULE.NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_aRXZMMGbEeaRet1oV4IS6A" name="ResourcesJDBCOrcl" type="jdbc:JdbcDataSource" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fkMGbEeaRet1oV4IS6A" name="ACMEDB/ConnectString" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fkcGbEeaRet1oV4IS6A" name="ACMEDB/Password" type="property:password" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z75fksGbEeaRet1oV4IS6A" name="ACMEDB/UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_yGW4UMJfEeauvObYHagLcg" name="ComponentCheckCustCreditService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_yGXfYMJfEeauvObYHagLcg" processName="acmecustomerchk.CheckCustCreditService"/>
+    <sca:service xmi:id="_3Ep-UMJfEeauvObYHagLcg" name="CheckCustCredit">
+      <sca:interface.wsdl xmi:id="_3Ep-UcJfEeauvObYHagLcg" interface="http://www.tibco.com/CheckCustCredit/#wsdl.interface(CheckCustCredit)" scaext:wsdlLocation="../Service%20Descriptors/CheckCustCredit.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_LuasMKxNEeqwP7BCccK1Zw" name="ComponentCallSubProc" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_LuasMaxNEeqwP7BCccK1Zw" processName="Invoking.CallSubProc"/>
+  </sca:component>
+  <sca:component xmi:id="_Ut82MKxREeqwP7BCccK1Zw" name="ComponentDynCall" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Ut82MaxREeqwP7BCccK1Zw" processName="Invoking.DynCall"/>
+  </sca:component>
+  <sca:component xmi:id="_GHFrQLAGEeqwP7BCccK1Zw" name="ComponentBindingRef" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_GHFrQbAGEeqwP7BCccK1Zw" processName="Invoking.BindingRef"/>
+  </sca:component>
+  <sca:component xmi:id="_PhO6YLAaEeqwP7BCccK1Zw" name="ComponentExternalService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_PhO6YbAaEeqwP7BCccK1Zw" processName="Invoking.ExternalService"/>
+    <sca:reference xmi:id="_SuxNYLAaEeqwP7BCccK1Zw" name="CheckCustCredit">
+      <sca:interface.wsdl xmi:id="_SuxNYbAaEeqwP7BCccK1Zw" interface="http://www.tibco.com/edu/CreditCheck#wsdl.interface(CheckCustCredit)" scaext:wsdlLocation="../Service%20Descriptors/CheckCustCredit_gen1.wsdl"/>
+    </sca:reference>
+  </sca:component>
+</sca:composite>
