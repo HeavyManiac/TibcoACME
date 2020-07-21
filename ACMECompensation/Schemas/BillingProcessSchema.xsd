@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/schema/1438043449312" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://www.example.org/schema/1438043449312">
+  <element name="completeBillingRequest">
+    <complexType>
+      <sequence>
+        <element name="CCNumber" type="string"/>
+                <element name="Amount" type="double"/>
+            </sequence>
+    </complexType>
+  </element>
+  <element name="completeBillingResponse">
+    <complexType>
+      <sequence>
+        <element name="BillingStatus" type="string"/>
+                <element name="Comments" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="reverseBillingRequest">
+    <complexType>
+      <sequence>
+        <element name="CCNumber" type="string"/>
+                <element name="reversalReason" type="string"/>
+                <element name="reversalDate" type="string"/>
+                <element name="reversalAmount" type="double"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="reverseBillingResponse">
+    <complexType>
+      <sequence>
+        <element name="ReversalID" type="string"/>
+                <element name="ReversalStatus" type="string"/>
+                <element name="Comments" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+</schema>
