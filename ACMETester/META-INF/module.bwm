@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ACMEOrderNew="http://www.tibco.com/tibedu/ACMEOrderNew" xmlns:ACMEOrderStatus="http://www.tibco.com/tibedu/ACMEOrderStatus" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:Schema.xsd="http://www.tibco.com/schemas/testschemas/Schema.xsd" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:schema_1437423743402="http://www.example.org/schema/1437423743402" xmlns:wsdl_1437423743369="http://www.example.org/wsdl/1437423743369" xmi:id="_JuTmIKlOEeqmPtBix4oM7g" targetNamespace="http://tns.tibco.com/bw/composite/ACMETester" name="ACMETester" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:reference xmi:id="_-ulccLGhEeqEFOujpfWJwQ" multiplicity="0..1" name="MainProcess" wiredByImpl="false" promote="ComponentWebTester/MainProcess">
+    <sca:interface.wsdl xmi:id="_-ulccbGhEeqEFOujpfWJwQ" interface="http://www.example.org/wsdl/1437423743369#wsdl.interface(MainProcess)" scaext:wsdlLocation="../Service%20Descriptors/ACMEWebOrder.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPReferenceBinding" xmi:id="_EkcckLGiEeqEFOujpfWJwQ" name="SOAPReferenceBinding" portTypeQName="wsdl_1437423743369:MainProcess" transportBindingType="HTTP" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl" serviceQName="wsdl_1437423743369:MainProcess" portName="MainProcessSOAP" serviceBindingQName="wsdl_1437423743369:SOAPServiceBinding" locationURI="http://localhost:8068/SOAPServiceBinding/mainProcess/" wsdlLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl">
+      <bindingType xmi:id="_EkdqsLGiEeqEFOujpfWJwQ" style="DOCUMENT"/>
+      <operationConfiguration xmi:id="_EkmNkLGiEeqEFOujpfWJwQ" operationName="SubmitOrder" action="SubmitOrder">
+        <bindingType xmi:id="_EkmNkbGiEeqEFOujpfWJwQ" style="DOCUMENT"/>
+        <messageConfiguration xmi:id="_EkmNkrGiEeqEFOujpfWJwQ" description="SubmitOrderInput" messageQName="wsdl_1437423743369:SubmitOrderRequest" wsdlLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_EkmNk7GiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:SubmitOrderRequest" encoding="literal"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_EkmNlLGiEeqEFOujpfWJwQ" description="SubmitOrderOutput" messageQName="wsdl_1437423743369:SubmitOrderResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_EkmNlbGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:SubmitOrderResponse" encoding="literal"/>
+        </messageConfiguration>
+        <context xmi:id="_EkmNlrGiEeqEFOujpfWJwQ">
+          <inputMapping xmi:id="_EkmNl7GiEeqEFOujpfWJwQ"/>
+          <outputMapping xmi:id="_EkmNmLGiEeqEFOujpfWJwQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_EkmNmbGiEeqEFOujpfWJwQ" operationName="doBilling" action="operation">
+        <bindingType xmi:id="_EkmNmrGiEeqEFOujpfWJwQ" style="DOCUMENT"/>
+        <messageConfiguration xmi:id="_EkmNm7GiEeqEFOujpfWJwQ" description="operationInput" messageQName="wsdl_1437423743369:doBillingRequest" wsdlLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_EkmNnLGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:doBillingRequest" encoding="literal"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_EkmNnbGiEeqEFOujpfWJwQ" description="operationOutput" messageQName="wsdl_1437423743369:doBillingResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_EkmNnrGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:doBillingResponse" encoding="literal"/>
+        </messageConfiguration>
+        <context xmi:id="_EkmNn7GiEeqEFOujpfWJwQ">
+          <inputMapping xmi:id="_EkmNoLGiEeqEFOujpfWJwQ"/>
+          <outputMapping xmi:id="_EkmNobGiEeqEFOujpfWJwQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_EknbsLGiEeqEFOujpfWJwQ" operationName="cancelOrder" action="operation">
+        <bindingType xmi:id="_EknbsbGiEeqEFOujpfWJwQ" style="DOCUMENT"/>
+        <messageConfiguration xmi:id="_EknbsrGiEeqEFOujpfWJwQ" description="operationInput0" messageQName="wsdl_1437423743369:cancelOrderRequest" wsdlLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_Eknbs7GiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:cancelOrderRequest" encoding="literal"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_EknbtLGiEeqEFOujpfWJwQ" description="operationOutput0" messageQName="wsdl_1437423743369:cancelOrderResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMETester/Service%20Descriptors/ACMEWebOrder.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_EknbtbGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:cancelOrderResponse" encoding="literal"/>
+        </messageConfiguration>
+        <context xmi:id="_EknbtrGiEeqEFOujpfWJwQ">
+          <inputMapping xmi:id="_Eknbt7GiEeqEFOujpfWJwQ"/>
+          <outputMapping xmi:id="_EknbuLGiEeqEFOujpfWJwQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <outboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_Ekop0LGiEeqEFOujpfWJwQ" httpClient="acmetester.WebOrderClient"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Ekop0bGiEeqEFOujpfWJwQ" bindingName="SOAPReferenceBinding"/>
+  </sca:reference>
+  <sca:property xmi:id="_J9JTYKlOEeqmPtBix4oM7g" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_J9OL4KlOEeqmPtBix4oM7g" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_J9PaAKlOEeqmPtBix4oM7g" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_J9RPMKlOEeqmPtBix4oM7g" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_J9TEYKlOEeqmPtBix4oM7g" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_J9USgKlOEeqmPtBix4oM7g" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_J9WHsKlOEeqmPtBix4oM7g" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WgzWUKlQEeqmPtBix4oM7g" name="test" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_JzsccKlOEeqmPtBix4oM7g" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_JzsccalOEeqmPtBix4oM7g" processName="tester.module.Process"/>
+  </sca:component>
+  <sca:component xmi:id="_uDiwMKoGEeqJW8FS2ZFxDA" name="ComponentJMSTest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_uDiwMaoGEeqJW8FS2ZFxDA" processName="testers.NewOrderRESTClient"/>
+  </sca:component>
+  <sca:component xmi:id="_lXvzYKp3Eeq9rsOJwrkeIg" name="Component1Process" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_lXvzYap3Eeq9rsOJwrkeIg" processName="MyNewOrder.Process"/>
+  </sca:component>
+  <sca:component xmi:id="_-ubEYLGhEeqEFOujpfWJwQ" name="ComponentWebTester" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-ubEYbGhEeqEFOujpfWJwQ" processName="acmetester.WebTester"/>
+    <sca:reference xmi:id="_-ubrcLGhEeqEFOujpfWJwQ" name="MainProcess">
+      <sca:interface.wsdl xmi:id="_-ubrcbGhEeqEFOujpfWJwQ" interface="http://www.example.org/wsdl/1437423743369#wsdl.interface(MainProcess)" scaext:wsdlLocation="../Service%20Descriptors/ACMEWebOrder.wsdl"/>
+    </sca:reference>
+  </sca:component>
+</sca:composite>
