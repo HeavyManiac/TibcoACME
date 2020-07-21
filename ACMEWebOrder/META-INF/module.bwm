@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:schema_1437423743402="http://www.example.org/schema/1437423743402" xmlns:wsdl_1437423743369="http://www.example.org/wsdl/1437423743369" xmi:id="__j7asC8cEeWO8fW1nGmfdw" targetNamespace="http://tns.tibco.com/bw/composite/ACMEWebOrder" name="ACMEWebOrder" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_zBUuoLGiEeqEFOujpfWJwQ" name="MainProcess" promote="ComponentMainProcess/MainProcess">
+    <sca:interface.wsdl xmi:id="_zBZAELGiEeqEFOujpfWJwQ" interface="http://www.example.org/wsdl/1437423743369#wsdl.interface(MainProcess)" scaext:wsdlLocation="../Service%20Descriptors/MainProcess.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_247SULGiEeqEFOujpfWJwQ" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/78511873aa4741b9bdbf35dd56afba9d/SOAPServiceBinding" portTypeQName="wsdl_1437423743369:MainProcess" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/ACMEWebOrder/Service%20Descriptors/MainProcess.wsdl">
+      <bindingType xmi:id="_247SUbGiEeqEFOujpfWJwQ"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_5peHULGiEeqEFOujpfWJwQ" endpointURI="/SOAPServiceBinding/mainProcess/" httpConnector="weborder.HTTPConn8068"/>
+      <operationConfiguration xmi:id="_247SUrGiEeqEFOujpfWJwQ" operationName="SubmitOrder" action="SubmitOrder" actionNeeded="true">
+        <bindingType xmi:id="_2475YLGiEeqEFOujpfWJwQ"/>
+        <messageConfiguration xmi:id="_2475YbGiEeqEFOujpfWJwQ" messageQName="wsdl_1437423743369:SubmitOrderRequest" wsdlLocation="platform:/resource/ACMEWebOrder/Service%20Descriptors/MainProcess.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_2475YrGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:SubmitOrderRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_2475Y7GiEeqEFOujpfWJwQ" messageQName="wsdl_1437423743369:SubmitOrderResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMEWebOrder/Service%20Descriptors/MainProcess.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_2475ZLGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:SubmitOrderResponse"/>
+        </messageConfiguration>
+        <context xmi:id="_2475cbGiEeqEFOujpfWJwQ">
+          <inputMapping xmi:id="_2475crGiEeqEFOujpfWJwQ"/>
+          <outputMapping xmi:id="_2475c7GiEeqEFOujpfWJwQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_2475ZbGiEeqEFOujpfWJwQ" operationName="doBilling" action="doBilling" actionNeeded="true">
+        <bindingType xmi:id="_2475ZrGiEeqEFOujpfWJwQ"/>
+        <messageConfiguration xmi:id="_2475Z7GiEeqEFOujpfWJwQ" messageQName="wsdl_1437423743369:doBillingRequest" wsdlLocation="platform:/resource/ACMEWebOrder/Service%20Descriptors/MainProcess.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_2475aLGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:doBillingRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_2475abGiEeqEFOujpfWJwQ" messageQName="wsdl_1437423743369:doBillingResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMEWebOrder/Service%20Descriptors/MainProcess.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_2475arGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:doBillingResponse"/>
+        </messageConfiguration>
+        <context xmi:id="_2475dLGiEeqEFOujpfWJwQ">
+          <inputMapping xmi:id="_2475dbGiEeqEFOujpfWJwQ"/>
+          <outputMapping xmi:id="_2475drGiEeqEFOujpfWJwQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <operationConfiguration xmi:id="_2475a7GiEeqEFOujpfWJwQ" operationName="cancelOrder" action="cancelOrder" actionNeeded="true">
+        <bindingType xmi:id="_2475bLGiEeqEFOujpfWJwQ"/>
+        <messageConfiguration xmi:id="_2475bbGiEeqEFOujpfWJwQ" messageQName="wsdl_1437423743369:cancelOrderRequest" wsdlLocation="platform:/resource/ACMEWebOrder/Service%20Descriptors/MainProcess.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_2475brGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:cancelOrderRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_2475b7GiEeqEFOujpfWJwQ" messageQName="wsdl_1437423743369:cancelOrderResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/ACMEWebOrder/Service%20Descriptors/MainProcess.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_2475cLGiEeqEFOujpfWJwQ" partName="parameters" partElementName="schema_1437423743402:cancelOrderResponse"/>
+        </messageConfiguration>
+        <context xmi:id="_2475d7GiEeqEFOujpfWJwQ">
+          <inputMapping xmi:id="_2475eLGiEeqEFOujpfWJwQ"/>
+          <outputMapping xmi:id="_2475ebGiEeqEFOujpfWJwQ" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_2475erGiEeqEFOujpfWJwQ" bindingName="SOAPServiceBinding"/>
+  </sca:service>
+  <sca:property xmi:id="_ACdw0C8dEeWO8fW1nGmfdw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ACkegC8dEeWO8fW1nGmfdw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ACp-EC8dEeWO8fW1nGmfdw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ACu2kC8dEeWO8fW1nGmfdw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ACzvEC8dEeWO8fW1nGmfdw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AC5OoC8dEeWO8fW1nGmfdw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AC-HIC8dEeWO8fW1nGmfdw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ADC_oC8dEeWO8fW1nGmfdw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ADH4IC8dEeWO8fW1nGmfdw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ES0r4LEEEeqEFOujpfWJwQ" name="Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_zBREQLGiEeqEFOujpfWJwQ" name="ComponentMainProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zBREQbGiEeqEFOujpfWJwQ" processName="weborder.MainProcess"/>
+    <sca:service xmi:id="_zBUHkLGiEeqEFOujpfWJwQ" name="MainProcess">
+      <sca:interface.wsdl xmi:id="_zBUHkbGiEeqEFOujpfWJwQ" interface="http://www.example.org/wsdl/1437423743369#wsdl.interface(MainProcess)" scaext:wsdlLocation="../Service%20Descriptors/MainProcess.wsdl"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>
