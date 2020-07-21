@@ -1,0 +1,5 @@
+{"records": [{
+    "jsonSchemaLocation": "/ACMEAppModule/Service Descriptors/services.Ordering-ItemOrder.json",
+    "conversionType": "linked",
+    "xsdSchemaTargetNamespace": "http://www.tibco.com/schemas/testschemas/Schema.xsd"
+}]}
