@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/wsdl/1437423743369" xmlns:tns0="http://www.example.org/schema/1437423743402" xmlns:tns1="http://www.example.org/WebOrderSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MainProcess" targetNamespace="http://www.example.org/wsdl/1437423743369">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.example.org/schema/1437423743402" xmlns:extns="http://www.example.org/WebOrderSchema" xmlns:extns1="http://www.example.org/BillingSchema" xmlns:extns2="http://www.example.org/ShippingSchema" elementFormDefault="unqualified" targetNamespace="http://www.example.org/schema/1437423743402">
+      <xsd:import namespace="http://www.example.org/WebOrderSchema" schemaLocation="../Schemas/WebOrderSchema.xsd"/>
+      <xsd:element name="SubmitOrderRequest" type="extns:WebOrderRequest"/>
+      <xsd:element name="SubmitOrderResponse" type="extns:WebOrderResponse"/>
+      <xsd:element name="doBillingRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CustID" type="xsd:string"/>
+            <xsd:element name="BillingAmount" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="doBillingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="billingStatus" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelOrderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CustID" type="xsd:string"/>
+            <xsd:element name="CancelDate" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CustID" type="xsd:string"/>
+            <xsd:element name="CancelStatus" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://www.example.org/WebOrderSchema" elementFormDefault="qualified" targetNamespace="http://www.example.org/WebOrderSchema">
+      <xsd:element name="WebOrderRequest" type="tns:WebOrderRequest"/>
+      <xsd:complexType name="WebOrderRequest">
+        <xsd:sequence>
+          <xsd:element name="CustID" type="xsd:string"/>
+          <xsd:element name="OrderAmount" type="xsd:double"/>
+          <xsd:element name="OrderDate" type="xsd:date"/>
+          <xsd:element maxOccurs="unbounded" name="LineItems" type="tns:LineItems"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="WebOrderResponse" type="tns:WebOrderResponse"/>
+      <xsd:complexType name="WebOrderResponse">
+        <xsd:sequence>
+          <xsd:element name="CustID" type="xsd:string"/>
+          <xsd:element name="OrderID" type="xsd:string"/>
+          <xsd:element name="OrderStatus" type="xsd:string"/>
+          <xsd:element name="Comments" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LineItems">
+        <xsd:sequence>
+          <xsd:element name="ItemSKU" type="xsd:string"/>
+          <xsd:element name="Qty" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SubmitOrderRequest">
+    <wsdl:part element="tns0:SubmitOrderRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitOrderResponse">
+    <wsdl:part element="tns0:SubmitOrderResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="doBillingRequest">
+    <wsdl:part element="tns0:doBillingRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="doBillingResponse">
+    <wsdl:part element="tns0:doBillingResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cancelOrderRequest">
+    <wsdl:part element="tns0:cancelOrderRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cancelOrderResponse">
+    <wsdl:part element="tns0:cancelOrderResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="MainProcess">
+    <wsdl:operation name="SubmitOrder">
+      <wsdl:input message="tns:SubmitOrderRequest" name="SubmitOrderInput"/>
+      <wsdl:output message="tns:SubmitOrderResponse" name="SubmitOrderOutput"/>
+    </wsdl:operation>
+    <wsdl:operation name="doBilling">
+      <wsdl:input message="tns:doBillingRequest" name="operationInput"/>
+      <wsdl:output message="tns:doBillingResponse" name="operationOutput"/>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOrder">
+      <wsdl:input message="tns:cancelOrderRequest" name="operationInput0"/>
+      <wsdl:output message="tns:cancelOrderResponse" name="operationOutput0"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:MainProcess">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SubmitOrder">
+      <soap:operation soapAction="SubmitOrder" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doBilling">
+      <soap:operation soapAction="operation" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelOrder">
+      <soap:operation soapAction="operation" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MainProcess">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="MainProcessSOAP">
+      <soap:address location="http://localhost:8068/SOAPServiceBinding/mainProcess/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
