@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/schema/1438099624251" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://www.example.org/schema/1438099624251">
+  <element name="completeShippingRequest">
+    <complexType>
+      <sequence>
+        <element name="OrderID" type="string"/>
+                <element name="ProductID" type="string"/>
+                <element name="Address" type="string"/>
+                <element name="Zipcode" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+  <element name="completeShippingResponse">
+    <complexType>
+      <sequence>
+        <element name="TrackingID" type="string"/>
+                <element name="ShipStatus" type="string"/>
+                <element name="ShipDate" type="date"/>
+                <element name="Comments" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+    <element name="cancelShippingRequest">
+    <complexType>
+      <sequence>
+        <element name="OrderID" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+    <element name="cancelShippingResponse">
+    <complexType>
+      <sequence>
+        <element name="CancelShippingID" type="string"/>
+                <element name="Comments" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+</schema>
